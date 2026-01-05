@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import numpy as np
 
 st.title("Employee Performance Prediction App")
 dataFrame = pd.read_csv("train.csv")
@@ -42,6 +43,7 @@ if st.button("Predict Promotion"):
     input_data['department_score'] = input_data['department'].replace({'Sales & Marketing':1,'Operations':2,'Procurement':3,'Technology':4,'Analytics':5,'R&D':6,'Finance':7,'HR':8,'Legal':9})
     input_data['gender_score'] = input_data['gender'].replace({'m':1,'f':0})
     input_data['high_performer'] = input_data['KPIs_met >80%'] * input_data['awards_won?']
+    input_data['is_new_joiner'] = np.where(input_data['previous_year_rating'] == 0, 1, 0)
     prediction = model.predict(input_data.drop(columns=['employee_id']))
     if prediction[0] == 1:
         st.success("The employee is likely to be promoted.")

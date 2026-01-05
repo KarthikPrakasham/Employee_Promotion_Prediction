@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 import pandas as pd
+import numpy as np
 
 app = FastAPI()
 
@@ -32,6 +33,7 @@ def predict_promotion(data: EmployeeData):
     input_data['department_score'] = input_data['department'].replace({'Sales & Marketing':1,'Operations':2,'Procurement':3,'Technology':4,'Analytics':5,'R&D':6,'Finance':7,'HR':8,'Legal':9})
     input_data['gender_score'] = input_data['gender'].replace({'m':1,'f':0})
     input_data['high_performer'] = input_data['KPIs_met_80_percent'] * input_data['awards_won']
+    input_data['is_new_joiner'] = np.where(input_data['previous_year_rating'] == 0, 1, 0)
     input_data['KPIs_met >80%'] = input_data['KPIs_met_80_percent']
     input_data['awards_won?'] = input_data['awards_won']
     model = joblib.load("employee_promotion_model.pkl")
