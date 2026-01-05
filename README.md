@@ -6,6 +6,10 @@ Employee promotions are critical for organizational growth, talent retention, an
 This project builds a machine learning classification model to predict whether an employee is likely to be promoted based on historical HR data such as performance, experience, training, and demographics.
 The goal is to help HR teams make data-driven promotion decisions while identifying key factors influencing promotions.
 
+**FASTAPI** - https://employee-promotion-prediction-fastapi-860043820196.asia-south1.run.app/docs#/
+
+**STREAMLIT** - https://employee-promotion-prediction-streamlit-860043820196.asia-south1.run.app/
+
 🎯 **Problem Statement**
 
 Given employee-level data, predict whether an employee will be promoted (1) or not (0).
