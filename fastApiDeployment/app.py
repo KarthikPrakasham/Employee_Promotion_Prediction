@@ -34,7 +34,7 @@ def predict_promotion(data: EmployeeData):
     input_data['high_performer'] = input_data['KPIs_met_80_percent'] * input_data['awards_won']
     input_data['KPIs_met >80%'] = input_data['KPIs_met_80_percent']
     input_data['awards_won?'] = input_data['awards_won']
-    model = joblib.load("../employee_promotion_model.pkl")
+    model = joblib.load("employee_promotion_model.pkl")
     prediction = model.predict(input_data.drop(columns=['employee_id']))
     if prediction[0] == 1:
         return {"message": "The employee is likely to be promoted."}

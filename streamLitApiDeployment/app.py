@@ -36,7 +36,7 @@ input_data = pd.DataFrame({
 })
 
 if st.button("Predict Promotion"):
-    model = joblib.load("../employee_promotion_model.pkl")
+    model = joblib.load("employee_promotion_model.pkl")
     input_data['education_score'] = input_data['education'].replace({'Bachelor\'s':1,'Master\'s & above':2,'Below Secondary':0})
     input_data['recruitment_channel_score'] = input_data['recruitment_channel'].replace({'sourcing':1,'other':0,'referred':2})
     input_data['department_score'] = input_data['department'].replace({'Sales & Marketing':1,'Operations':2,'Procurement':3,'Technology':4,'Analytics':5,'R&D':6,'Finance':7,'HR':8,'Legal':9})
