@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 
 st.title("Employee Performance Prediction App")
-dataFrame = pd.read_csv("../resources/train.csv")
+dataFrame = pd.read_csv("train.csv")
 
 employee_id = st.number_input("Enter Employee ID:", min_value=0, step=1)
 department = st.selectbox("Select Department:", dataFrame['department'].unique())
